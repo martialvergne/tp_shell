@@ -19,6 +19,10 @@ then
 		echo "La configuration est non conforme, modification du fstab"
 		systemctl unmask tmp.mount
 		echo "tmpfs	/tmp	tmpfs	defaults,rw,nosuid,nodev,noexec,relatime,size=2G	0	0" >> /etc/fstab
+		echo "[X] 1.1.2.1 - Le montage /tmp est sur un montage séparée"
+		echo "[X] 1.1.2.2 - Nodev option set on /tmp"
+		echo "[X] 1.1.2.3 - Noexec option set on /tmp"
+		echo "[X] 1.1.2.4 - Nosuid option set on /tmp"
 		exit 0
 	fi
 	findmnt --kernel /tmp
