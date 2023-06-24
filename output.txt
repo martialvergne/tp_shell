@@ -1,0 +1,2 @@
+[ ] 1.1.2.1 - tmp est dans une partition séparée
+[X] 1.1.2.2 - Nodev option set on /tmp
