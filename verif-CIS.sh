@@ -31,22 +31,26 @@ fi
 findmnt --kernel /tmp | grep nodev
 if [ $? -ne 0 ]
 then
-	findmnt --kernel /tmp | grep noexec
-	if [ $? -ne 0 ]
-	then
-		findmnt --kernel /tmp | grep nosuid
-		if [ $? -ne 0 ]
-		then
-			echo "[ ] 1.1.2.4 - Nosuid option not set on /tmp" >> output.txt
-		else
-			echo "[X] 1.1.2.4 - Nosuid option set on /tmp" >> output.txt
-		fi
-		echo "[ ] 1.1.2.3 - Noexec option not set on /tmp" >> output.txt
-	else
-		echo "[X] 1.1.2.3 - Noexec option set on /tmp" >> output.txt
-	fi
 	echo "[ ] 1.1.2.2 - Nodev option not set on /tmp" >> output.txt
 else
 	echo "[X] 1.1.2.2 - Nodev option set on /tmp" >> output.txt
+fi
+mount -o remount /tmp
+
+findmnt --kernel /tmp | grep noexec
+if [ $? -ne 0 ]
+then
+	echo "[ ] 1.1.2.3 - Noexec option not set on /tmp" >> output.txt
+else
+	echo "[X] 1.1.2.3 - Noexec option set on /tmp" >> output.txt
+fi
+mount -o remount /tmp
+
+findmnt --kernel /tmp | grep nosuid
+if [ $? -ne 0 ]
+then
+	echo "[ ] 1.1.2.4 - Nosuid option not set on /tmp" >> output.txt
+else
+	echo "[X] 1.1.2.4 - Nosuid option set on /tmp" >> output.txt
 fi
 mount -o remount /tmp
