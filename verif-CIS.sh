@@ -13,7 +13,7 @@ echo "Vérification des recommandations CIS"
 findmnt --kernel /tmp > /dev/null 2>&1
 if [ $? -ne 0 ]
 then
-	systemctl- is-enabled tmp.mount > /dev/null 2>&1
+	systemctl is-enabled tmp.mount > /dev/null 2>&1
 	if [ $? -ne 0 ]
 	then
 		echo "La configuration est non conforme, modification du fstab"
@@ -26,6 +26,7 @@ then
 		exit 0
 	fi
 	findmnt --kernel /tmp > /dev/null 2>&1
+	mount -a
 else
 	echo "[X] 1.1.2.1 - Le montage /tmp est sur un montage séparé" 
 fi
