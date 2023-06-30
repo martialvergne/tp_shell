@@ -21,11 +21,11 @@ fi
 # On peut utiliser : $(#passwd) pour afficher la taille du mot de passe
 
 test=$(expr length $password)
-if [ "$test" -lt 16 ]
+if [ $(#passwd) -lt 16 ]
 then
-	echo "\n Erreur. Le mot de passe saisi contient moins de 16 caractères"
+	echo "Erreur. Le mot de passe saisi contient moins de 16 caractères"
 	pwd_suggest=$(openssl rand -base64 12)
-	echo "\n Mot de passe suggéré : $pwd_suggest"
+	echo "Mot de passe suggéré : $pwd_suggest"
 else
 	echo "Ok. Le mot de passe saisi contient 16 caractères ou plus"
 fi
