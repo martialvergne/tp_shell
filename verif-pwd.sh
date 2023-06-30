@@ -27,14 +27,14 @@ then
 	pwd_suggest=$(openssl rand -base64 12)
 	echo "\n Mot de passe suggéré : $pwd_suggest"
 else
-	echo "\n Ok. Le mot de passe saisi contient 16 caractères ou plus"
+	echo "Ok. Le mot de passe saisi contient 16 caractères ou plus"
 fi
-if [[ $password =~ [A-Z]] && [[ $password =~ [a-z]] && [[ $password =~ [0-9]] && [[ $password =~ [@\#\$\%\!\?\&\+\=\;] ]]
+if [[ $password=~[A-Z] ]] && [[ $password=~[a-z] ]] && [[ $password=~[0-9] ]] && [[ $password=~[@\#\$\%\!\?\&\+\=\;] ]]
 then
-	echo "\n La complexité du mot de passe est suffisante"
+	echo "La complexité du mot de passe est suffisante"
 else
-	echo "\n La complexité du mot de passe n'est pas suffisante"
-	pwd_suggest=$(openssl rand -base64 12)
-	echo "\n Mot de passe suggéré : $pwd_suggest"
+	echo "La complexité du mot de passe n'est pas suffisante"
+	pwd_suggest=$(openssl rand -base64 16)
+	echo "Mot de passe suggéré : $pwd_suggest"
 fi
 
