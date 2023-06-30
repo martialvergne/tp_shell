@@ -4,7 +4,7 @@
 #
 # Auteur : MV
 # Date : 22/06/2023
-# Descriptions : 
+# Description : Vérification des recommandations CIS pour Debian
 # Syntaxe :
 #
 ##################
