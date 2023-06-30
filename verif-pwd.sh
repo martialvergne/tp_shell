@@ -9,16 +9,18 @@
 #
 ##################
 
-
+#Vérification si le mot de passe est passé en paramètre au lancement du script
 if [ $# -eq 0 ]
 then
-	read -p "Entrez le mot de passe à tester : " passwd
+	read -p "Entrez le mot de passe à tester : " password
 	echo "Vérification du mot de passe saisi"
 else 
-	passwd=$1
+	password=$1
 fi
 
-test=$(expr length $passwd)
+# On peut utiliser : $(#passwd) pour afficher la taille du mot de passe
+
+test=$(expr length $password)
 if [ "$test" -lt 16 ]
 then
 	echo "Erreur. Le mot de passe saisi contient moins de 16 caractères"
