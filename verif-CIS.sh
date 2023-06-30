@@ -23,10 +23,11 @@ then
 		echo "[X] 1.1.2.2 - Nodev option set on /tmp"
 		echo "[X] 1.1.2.3 - Noexec option set on /tmp"
 		echo "[X] 1.1.2.4 - Nosuid option set on /tmp"
+		mount -a
 		exit 0
 	fi
 	findmnt --kernel /tmp > /dev/null 2>&1
-	mount -a
+	
 else
 	echo "[X] 1.1.2.1 - Le montage /tmp est sur un montage séparé" 
 fi
