@@ -25,9 +25,7 @@ then
 		echo "[X] 1.1.2.4 - Nosuid option set on /tmp"
 		mount -a
 		exit 0
-	fi
-	findmnt --kernel /tmp > /dev/null 2>&1
-	
+	fi	
 else
 	echo "[X] 1.1.2.1 - Le montage /tmp est sur un montage séparé" 
 fi
