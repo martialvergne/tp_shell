@@ -27,7 +27,7 @@ then
 	fi
 	findmnt --kernel /tmp > /dev/null 2>&1
 else
-	echo echo "[X] 1.1.2.1 - Le montage /tmp est sur un montage séparée" 
+	echo "[X] 1.1.2.1 - Le montage /tmp est sur un montage séparée" 
 fi
 
 findmnt --kernel /tmp | grep nodev > /dev/null 2>&1
